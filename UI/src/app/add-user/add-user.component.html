@@ -57,10 +57,10 @@
 					<input class="form-control" type="text" [(ngModel)]="searchText" placeholder="Search" name="searchText">
 				</td>
 				<td>
-					<label class="form-group">&nbsp;&nbsp;Sort&nbsp;</label>
-					<button class="btn btn-default" (click)="sortByFirstName()">Firstname</button>
-					<button class="btn btn-default" (click)="sortByLastName()">LastName</button>
-					<button class="btn btn-default" (click)="sortById()">Id</button>
+					<label class="form-group">&nbsp;&nbsp;Sort BY : &nbsp;</label>
+					<button class="btn btn-default sortButton " (click)="sortByFirstName()">Firstname</button>
+					<button class="btn btn-default sortButton " (click)="sortByLastName()">LastName</button>
+					<button class="btn btn-default sortButton" (click)="sortById()">Id</button>
 				</td>
 			</tr>
 			<tr> <hr style="border-top: dotted 2px; width: 270%" /> </tr>
@@ -71,28 +71,30 @@
 		   <table>
 			<tr>
 				<td colspan="2">
-					<input class="form-control" [(ngModel)]="user.firstName" placeholder="firstName" readonly #test="ngModel">
+				<label>First Name: {{user.firstName}}</label>
+					<!-- <input class="form-control" [(ngModel)]="user.firstName" placeholder="firstName" readonly #test="ngModel"> -->
 				</td>
-				<td> &nbsp;&nbsp;&nbsp;&nbsp; <button class="btn btn-default" (click)="editUser(user)">Edit</button></td>
+				<td> &nbsp;&nbsp;&nbsp;&nbsp; <input type="button" class="btn btn-default" (click)="editUser(user)" value="Edit"/></td>
 			</tr>
 			<br>
 			<tr>
 				<td colspan="2">
-					<input class="form-control" [(ngModel)]="user.lastName" placeholder="lastName" readonly>
+				<label>Last Name : {{user.lastName}}</label>
+					<!-- <input class="form-control" [(ngModel)]="user.lastName" placeholder="lastName" readonly> -->
 				</td>
 				<td>
 					&nbsp;&nbsp;&nbsp;&nbsp;
-					<button class="btn btn-default" (click)="deleteUser(user)">Delete</button>
+					<input type="button" class="btn btn-default" (click)="deleteUser(user)" value="Delete"/>
 				</td>
 			</tr>
 			<br>
 			<tr >
 				<td>
-					<input class="form-control" [(ngModel)]="user.employeeId" placeholder="employeeId" readonly> 
+				<label>Employee ID: {{user.employeeId}}</label>
+					<!-- <input class="form-control" [(ngModel)]="user.employeeId" placeholder="employeeId" readonly>  -->
 				</td>
 			</tr>
-			<br>
-			<tr> <hr style="border-top: dotted 2px; width: 270%" /> </tr>
+			<br>			
 		</table>
 	</div>
 

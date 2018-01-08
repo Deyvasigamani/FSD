@@ -19,10 +19,11 @@ const httpOptions = {
 export class TaskService {
 
   private taskUrl = "http://localhost:8080"; 
-
+  
 
   public task = null;
   public editTaskFlag = false;
+  
 
   constructor(private http: HttpClient) { }
 
@@ -33,7 +34,6 @@ export class TaskService {
       catchError(this.handleError<Task>('addHero'))
     );
   }
-  
   addParentTask (task: Task): Observable<void> {    
    
     return this.http.post<any>(this.taskUrl+"/parenttask", task, httpOptions).pipe(
@@ -50,6 +50,14 @@ export class TaskService {
       );
   }
 
+  getAllTasks(): Observable<Task[]>{
+    return this.http.get<Task[]>(this.taskUrl+"/task")
+        .pipe(
+          tap(Task => this.log(`fetched allTasks`)),
+          catchError(this.handleError('getallTask', []))
+        );
+    }
+
   getTasksByProject(id: number): Observable<Task[]>{
   return this.http.get<Task[]>(this.taskUrl+"/task/"+id)
       .pipe(
@@ -64,6 +72,23 @@ export class TaskService {
       catchError(this.handleError<any>('updateUser'))
     );
   }
+  updateTaskStatus(taskid: number): any {
+    return this.http.put(this.taskUrl + "/task/"+taskid, httpOptions).pipe(
+      tap(_ => this.log(`deleted task `)),
+      catchError(this.handleError<any>('update Task Status'))
+    );
+  }
+
+ 
+
+
+  getAllCompletedTask(): Observable<Task[]>{
+    return this.http.get<Task[]>(this.task+"/task/allTaskcompleted")
+        .pipe(
+          tap(Task => this.log(`fetched allCompletedTasks`)),
+          catchError(this.handleError('getallCompletedTask', []))
+        );
+    }
 
   /**
    * Handle Http operation that failed.

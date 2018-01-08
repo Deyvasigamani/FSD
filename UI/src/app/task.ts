@@ -1,7 +1,7 @@
 export class Task{
 	taskId: number;
 	taskName: string;
-	parentTask: boolean;
+	isparentTask: boolean;
 	projectName: string;
 	startDate: string;
 	endDate: string;
@@ -12,5 +12,7 @@ export class Task{
 	userId: number;
 	priority: number;
 	status: string;
+	parentTask: string;
+	parentId: number;
 
 }

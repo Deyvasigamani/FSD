@@ -5,6 +5,9 @@ input[type=text]{
 
 input[type=button]{
   padding: 5px;
+  background: #5799CE;
+  color: #ffffff;
+
 }
 
 .slider {

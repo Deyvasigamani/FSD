@@ -27,3 +27,15 @@ td.td1{
     width: 150px;
     padding: 5px;
 }
+input[type=button]{
+    padding: 5px;
+    background:#5799CE;
+    color: #ffffff;
+   
+  }
+  
+  .sortButton {
+    padding: 5px;
+    background: #5799CE;
+    color: #ffffff;
+}

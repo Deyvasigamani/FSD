@@ -57,16 +57,13 @@ export class AddTaskComponent implements OnInit {
   }
 
   addTask(task: Task): void {
-	  
-if(task.parentTask){
+ if(task.isparentTask==true){
 	task.parentTask=task.taskName;
 	this.taskService.addParentTask(task).subscribe();
 }	else {
 	task.parentId=task.parentTaskId;
 	this.taskService.addTask(task).subscribe();
 }
-   // console.log(task);
-    
   }
 
   editTask(task : Task): void {

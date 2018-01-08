@@ -70,11 +70,11 @@
 			<tr>
 				<td></td>
 				<td colspan="2">
-					<label class="form-group">Sort BY</label>
-					<button class="btn btn-default" (click)="sortByStartDate()">Start Date</button>
-					<button class="btn btn-default" (click)="sortByEndDate()">End Date</button>
-					<button class="btn btn-default" (click)="sortByPriority()">Priority</button>
-					<button class="btn btn-default" (click)="sortByCompleted()">Completed</button>
+					<label class="form-group">Sort BY : </label>
+					<button class="btn btn-default sortButton" (click)="sortByStartDate()">Start Date</button>
+					<button class="btn btn-default sortButton" (click)="sortByEndDate()">End Date</button>
+					<!-- <button class="btn btn-default" (click)="sortByPriority()">Priority</button> -->
+					<button class="btn btn-default sortButton" (click)="sortByCompleted()">Completed</button>
 				</td>
 			</tr>
 		</table>
@@ -88,14 +88,14 @@
 			<label> No of Tasks: {{project.taskNumber}} &nbsp;&nbsp;&nbsp;&nbsp; Completed:  {{project.completedTaskNumber}} </label><br>
 			<label>Start Date:  {{project.startDate | date}}  End Date: {{project.endDate | date}}</label>
 		</div>
-		<div class="priority">
+		<!-- <div class="priority">
 			<label> Priority </label>
 			<label>{{project.priority}}</label>
-		</div>
+		</div> -->
 		<div class="btnss">
-			<button class="btn btn-default" (click)="editProject(project)">Update</button>
-			<br>
-			<button class="btn btn-default" (click)="deleteProject(project)">Suspend</button>
+			<button class="btn btn-default sortButton" (click)="editProject(project)">Update</button>
+			
+			<button class="btn btn-default sortButton" (click)="deleteProject(project)">Delete</button>
 		</div>
 		<div style="clear: left;"></div>
 

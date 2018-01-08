@@ -1,10 +1,11 @@
 /* AppComponent's private CSS styles */
 h1 {
   font-size: 1.2em;
-  color: #999;
+  color: #1B4669;
   margin-bottom: 0;
-  font-size:bold;
-  color: brown;
+  font-weight: bold;
+  
+  
 }
 h2 {
   font-size: 2em;
@@ -17,21 +18,26 @@ nav a {
   margin-top: 10px;
   margin-left: 15px;
   display: inline-block;
-  background-color: #eee;
+  background-color:#395E7B;
   border-radius: 4px;
-  
+  font-weight: bold;
+
 }
 nav a:visited, a:link {
-  color: #607D8B;
+  color: #E7EEF4;
 }
-nav a:hover {
+/*nav a:hover {
   color: #039be5;
   background-color: #CFD8DC;
+}*/
+/* .activeCls {
+  background-color: #039be5 !important;
+} */
+
+nav a:active
+{
+  background-color: #6F9ABC;
 }
-nav a.active {
-  background-color: #039be5;
-}
-.maindiv{
-	border: 1px solid black;
-	padding: 10px;
+nav a:focus{
+  background:#6F9ABC;
 }

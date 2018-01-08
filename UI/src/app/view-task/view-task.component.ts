@@ -19,13 +19,20 @@ export class ViewTaskComponent implements OnInit {
   constructor(private taskService: TaskService, private projectService: ProjectService,private router:Router) { }
 
   ngOnInit() {
-  	this.getProjects();
-  }
+    this.getTasks();
+    this.getProjects();
+      }
+
 
   getProjects(): void{
    this.projectService.getProjects()
   .subscribe(projects => this.projects = projects)
   }
+
+  getTasks(): void{
+    this.taskService.getAllTasks()
+   .subscribe(tasks => this.tasks = tasks)
+   }
 
    getTasksByProject(id: number): void{
     this.taskService.getTasksByProject(id)
@@ -38,6 +45,14 @@ export class ViewTaskComponent implements OnInit {
     this.router.navigate(['/add-task']);
   }
 
+
+
+endTask(task: Task): void{
+  console.log(" delete ");
+  this.tasks = this.tasks.filter(u => u !== task);
+  this.taskService.updateTaskStatus(task.taskId).subscribe();
+
+}
 
   sortByStartDate(): void{
      this.tasks.sort((a, b) => {
@@ -64,6 +79,8 @@ export class ViewTaskComponent implements OnInit {
   }
 
   sortByCompleted(): void{
+    this.taskService.getAllCompletedTask()
+    .subscribe(tasks => this.tasks = tasks)
      /*this.tasks.sort((a, b) => {
         if (a.status < b.status) return -1;
         else if (a.status > b.status) return 1;

@@ -2,18 +2,18 @@
 <table>
 	<tr>
 		<td>
-			<label><b>Project: </b></label>
+			<label><b>PROJECT : </b></label>
 		</td>
 		<td>
 			<input [(ngModel)]="projectName" readonly>
-			<button type="button" class="btn btn-default" data-toggle="modal" data-target="#projectModal" [disabled]="disable">Search</button>
+			<button type="button" class="btn btn-default sortButton " data-toggle="modal" data-target="#projectModal" [disabled]="disable">Search</button>
 		</td>
 		<td>
-			<label>Sort By</label>
-			<button class="btn btn-default" (click)="sortByStartDate()">StartDate</button>
-			<button class="btn btn-default" (click)="sortByEndDate()">EndDate</button>
-			<button class="btn btn-default" (click)="sortByPriority()">Priority</button>
-			<button class="btn btn-default" (click)="sortByCompleted()">Completed</button>
+			<label>SORT BY : </label>
+			<button class="btn btn-default sortButton" (click)="sortByStartDate()">StartDate</button>
+			<button class="btn btn-default sortButton" (click)="sortByEndDate()">EndDate</button>
+			<button class="btn btn-default sortButton" (click)="sortByPriority()">Priority</button>
+			<!-- <button class="btn btn-default" (click)="sortByCompleted()">Completed</button> -->
 		</td>	
 	</tr>
 	<tr> <hr style="border-top: dotted 2px; width: 1500%" /> </tr>
@@ -36,8 +36,8 @@
 		<td class="td"><label>{{task.startDate | date}}</label></td>
 		<td class="td"><label>{{task.endDate | date}}</label></td>
 		<td>
-			<button class="btn btn-default" (click)="editTask(task)">Edit</button>
-			<button class="btn btn-default">EndTask</button>
+			<input type="button" class="btn btn-default" (click)="editTask(task)" value="Edit" />
+			<input type="button" class="btn btn-default" (click)="endTask(task)" value="EndTask" />
 		</td>
 	</tr>
 

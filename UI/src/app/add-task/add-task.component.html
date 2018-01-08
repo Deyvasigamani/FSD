@@ -23,7 +23,7 @@
 				<td></td>
 				<td>
 					<label class="checkbox-inline">
-						<input type="checkbox" [(ngModel)]="task.parentTask" ng-init="task.parentTask=false" name="parentTask" (change)="changeEvent(task.parentTask)" [disabled]="disable"> <b>Parent Task</b>
+						<input type="checkbox" [(ngModel)]="task.isparentTask" ng-init="task.isparentTask=false" name="isparentTask" (change)="changeEvent(task.isparentTask)" [disabled]="disable"> <b>Parent Task</b>
 					</label>
 				</td>
 			</tr>
@@ -60,7 +60,7 @@
 				<td>
 					<!-- <button class="btn btn-default" (click)="addTask(task)" value="Update"></button> -->
 					<input type="button" [value]="editTaskFlag ? 'Update' : 'Add'" class="btn btn-default" (click)="editTaskFlag ? editTask(task) : addTask(task); addTaskForm.reset();" [disabled]="!addTaskForm.form.valid"/>
-					<button class="btn btn-default">Cancel</button>
+					<input type="button" class="btn btn-default" value="Cancel" (click)="addTaskForm.reset()"/>
 				</td>
 			</tr>
 		</table>
