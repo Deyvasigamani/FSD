@@ -21,7 +21,7 @@ public class TaskController {
 	@Autowired 
 	private TaskService taskService;
 	
-	
+	@RequestMapping(method = RequestMethod.GET)
 	public @ResponseBody List<TaskFilter> getAllTasks() {
 		return taskService.getAllTasks();
 		
@@ -37,6 +37,12 @@ public class TaskController {
 	@RequestMapping(method = RequestMethod.POST)
 	public @ResponseBody Task createTask(@RequestBody Task task){
 		return taskService.createTask(task);
+		
+	}
+	
+	@RequestMapping(method = RequestMethod.PUT,value = "/{id}")
+	public @ResponseBody Task updateTaskStatus(@PathVariable("id") Long id){
+		return taskService.updateTaskStatus(id);
 		
 	}
 	

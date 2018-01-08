@@ -133,4 +133,13 @@ public class TaskService {
 		return taskRepository.save(task);
 	}
 
+	public Task updateTaskStatus(Long id) {
+		// TODO Auto-generated method stub
+		
+		Task task = taskRepository.findOne(id);
+		task.setStatus("completed");
+		
+		return taskRepository.save(task);
+	}
+
 }
